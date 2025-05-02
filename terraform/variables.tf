@@ -1,7 +1,7 @@
 # variables.tf
 
 variable "billing_account" {
-  description = "Your GCP billing account ID (e.g., ABCDEF-ABCDEF-ABCDEF)"
+  description = "Your GCP billing account ID"
   type        = string
   default     = "" # Replace with your billing account ID
 }
@@ -9,7 +9,7 @@ variable "billing_account" {
 variable "project_id" {
   description = "The ID for the new GCP project. Must be globally unique."
   type        = string
-  default     = "dataform-sandbox-uniquestring" # Choose unique project ID
+  default     = "dataform-sandbox-mdup123" # Choose unique project ID
 }
 
 variable "region" {
