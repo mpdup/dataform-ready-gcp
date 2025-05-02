@@ -17,7 +17,6 @@ resource "google_project" "sandbox_project" {
   name            = var.project_id
   project_id      = var.project_id
   billing_account = var.billing_account
-  deletion_policy = "DELETE"
 }
 
 # Enable Dataform API
@@ -60,13 +59,6 @@ locals {
   dataform_service_account = "service-${google_project.sandbox_project.number}@gcp-sa-dataform.iam.gserviceaccount.com"
 }
 
-resource "google_project_iam_member" "ataform_bigquery_viewer" {
-  project = google_project.sandbox_project.project_id
-  role    = "roles/bigquery.dataViewer"
-  member  = "serviceAccount:${local.dataform_service_account}"
-  depends_on = [google_dataform_repository.dataform_repo] # Depend on repo existence
-}
-
 resource "google_project_iam_member" "dataform_bigquery_editor" {
   project = google_project.sandbox_project.project_id
   role    = "roles/bigquery.dataEditor"
@@ -105,6 +97,7 @@ resource "google_storage_bucket" "source_data_storage" {
   name          = "raw-data-storage"
   location      = var.region
   force_destroy = true
+  depends_on = [google_project.sandbox_project]
 }
 
 resource "google_storage_bucket_object" "inputdata_revenue" {
