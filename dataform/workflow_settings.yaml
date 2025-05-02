@@ -1,0 +1,5 @@
+defaultProject: YOUR_PROJECT_NAME_ID_HERE
+defaultLocation: europe-west4
+defaultDataset: L0_raw_data
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0
