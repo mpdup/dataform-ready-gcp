@@ -1,0 +1,15 @@
+config {
+    type: "table",
+    description: "L1 of customers, checking uniqueness.",
+    assertions: {
+        uniqueKey: "customer_id"
+    },
+    schema: "L1"
+}
+
+SELECT
+  customer_id,
+  name,
+  email
+FROM
+  `${dataform.projectConfig.defaultDatabase}.${dataform.projectConfig.defaultSchema}.L0_CUSTOMERS`

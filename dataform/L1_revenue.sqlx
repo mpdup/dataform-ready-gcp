@@ -1,0 +1,16 @@
+config {
+    type: "table",
+    description: "L1 of revenue.",
+    assertions: {
+        uniqueKey: "revenue_id"
+    },
+    schema: "L1"
+}
+
+SELECT
+  revenue_id,
+  customer_id,
+  order_date,
+  amount
+FROM
+  `${dataform.projectConfig.defaultDatabase}.${dataform.projectConfig.defaultSchema}.L0_REVENUE`

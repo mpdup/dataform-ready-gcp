@@ -1,0 +1,25 @@
+config {
+    type: "table",
+    description: "Table calculating revenue for each date by customers.",
+    assertions: {
+        nonNull: ["name", "email", "order_date"]
+    },
+    schema: "L2_transformed_data"
+}
+
+SELECT
+  revenue.customer_id,
+  customers.name,
+  customers.email,
+  SUM(revenue.amount) AS revenue_amount,
+  revenue.order_date
+FROM
+  ${ref('L1_revenue')} revenue
+LEFT JOIN
+  ${ref('L1_customers')} customers
+ON
+  revenue.customer_id = customers.customer_id
+GROUP BY
+  ALL
+ORDER BY
+  customer_id
