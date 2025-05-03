@@ -38,7 +38,7 @@ cd dataform-ready-gcp/terraform
 
 **Step 1: Configure and execute terraform**
 
-Go into `variables.tf` and set your project-id and billing-id. Adjust region if preferred. Project will be created as part of configuration.
+Go into `terraform.tfvars` and set your project-id and billing-id. 
 
 Execute commands:
 
@@ -46,7 +46,7 @@ Execute commands:
 terraform init
 ```
 
-Optional - If you want to deploy infrastructure into existing project, first execute
+Optional - If you want to deploy infrastructure into existing project, first execute. Project will be created if it does not exist 
 
 ```
 google_project.sandbox_project your-existing-project-id
