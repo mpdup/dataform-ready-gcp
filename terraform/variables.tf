@@ -3,13 +3,11 @@
 variable "billing_account" {
   description = "Your GCP billing account ID"
   type        = string
-  default     = "" # Replace with your billing account ID
 }
 
 variable "project_id" {
   description = "The ID for the new GCP project. Must be globally unique."
   type        = string
-  default     = "dataform-sandbox-mdup123" # Choose unique project ID
 }
 
 variable "region" {
