@@ -63,7 +63,7 @@ resource "google_project_iam_member" "dataform_bigquery_editor" {
   project = google_project.sandbox_project.project_id
   role    = "roles/bigquery.dataEditor"
   member  = "serviceAccount:${local.dataform_service_account}"
-  depends_on = [google_dataform_repository.dataform_repo]
+  depends_on = [google_dataform_repository.dataform_repo, local.dataform_service_account]
 }
 
 resource "google_project_iam_member" "dataform_bigquery_jobuser" {
@@ -94,7 +94,7 @@ resource "google_project_iam_binding" "storage_viewer" {
 # Create Bucket and load source data
 # -----------------------------------------------------------------------------
 resource "google_storage_bucket" "source_data_storage" {
-  name          = "raw-data-storage"
+  name          = "raw-data-storage-${google_project.sandbox_project.number}"
   location      = var.region
   force_destroy = true
   depends_on = [google_project.sandbox_project]
@@ -146,7 +146,7 @@ resource "google_bigquery_table" "L0_customers" {
     }
 
     source_uris = [
-      "gs://raw-data-storage/source_data/customers.csv",
+      "gs://raw-data-storage-${google_project.sandbox_project.number}/source_data/customers.csv",
     ]
   }
 
@@ -168,7 +168,7 @@ resource "google_bigquery_table" "L0_revenue" {
     }
 
     source_uris = [
-      "gs://raw-data-storage/source_data/revenue.csv",
+      "gs://raw-data-storage-${google_project.sandbox_project.number}/source_data/revenue.csv",
     ]
   }
   
