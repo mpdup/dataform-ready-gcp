@@ -40,21 +40,28 @@ cd dataform-ready-gcp/terraform
 
 Go into `variables.tf` and set your project-id and billing-id. Adjust region if preferred. Project will be created as part of configuration.
 
-Execute commands
+Execute commands:
 
 ```
-# Initialize Terraform (downloads plugins)
 terraform init
+```
 
-# Preview the changes Terraform will make
+Optional - If you want to deploy infrastructure into existing project, first execute
+
+```
+google_project.sandbox_project your-existing-project-id
+```
+
+
+```
 terraform plan
 
-# Apply the changes to create the GCP resources
 terraform apply
 ```
+
 This will:
-- Create a GCP Project and link it to your billing account.
-- Enable necessary APIs (Dataform, BigQuery).
+- Create a GCP Project if not created already.
+- Enable APIs for Dataform and BigQuery.
 - Create a dedicated Service Account for Dataform.
 - Grant necessary IAM roles to the Service Account:
     - `roles/bigquery.dataEditor`
@@ -69,7 +76,7 @@ This will:
 
 *Now you have a functioning dataform repository. If you are familiar with dataform feel free to skip next steps. If you wish to follow example use case, continue...*
 
-**Step 2: Manually set up terraform**
+**Step 2: Set up dataform pipelines**
 
 Navigate to created dataform dataform-sandbox-repository and manually create development workspace and within that click initialize workspace. This will create basic dataform structure.
 ![alt text](documentation/image.png)
@@ -92,4 +99,4 @@ And manually create recreate the files in dataform subfolder.
 Now you have 
 Source Files in GCS -> L0 in Bigquery -> L1 -> L2 data pipeline.
 
-Observe failing test in `L2_revenue_per_customer.sqlx` due to null columns.
+Observe failing test in `L2_revenue_per_customer.sqlx` due to null columns, how would you take care of this?
