@@ -15,7 +15,7 @@ After running the Terraform setup, you can perform a one-time manual step to cre
 
 ## Features
 
-*   **Automated Infrastructure:** 
+*   **Automated Infrastructure** 
 *   **Essential Resources:** Creates a dedicated Service Account with appropriate permissions, enables required APIs (Dataform, BigQuery), and sets up a BigQuery dataset.
 *   **Sample Dataform Project:** Includes a basic Dataform project structure (`definitions`, `assertions`, etc. using files from `terraform/source_data/`) to get you started immediately.
 *   **Fast Start:** Designed to minimize setup friction and accelerate your Dataform learning or development process.
