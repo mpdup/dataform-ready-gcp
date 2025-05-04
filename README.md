@@ -7,13 +7,15 @@ Quickly set up a Google Cloud Platform (GCP) environment using Terraform, specif
 
 ## Overview
 
-This repository provides Terraform configurations to automate the creation of essential GCP resources needed to run Dataform. It aims to significantly reduce the initial setup time for developers wanting to explore or utilize Dataform on GCP.
+This repository provides Terraform configurations to automate the creation of essential GCP resources needed to analyse data (Google Cloud Storage, BigQuery, Dataform). 
 
-After running the Terraform setup, you will perform a one-time manual step to create the Dataform workspace within the GCP console and then populate it with the provided sample Dataform project files.
+It aims to significantly reduce the initial setup time for developers wanting to explore or utilize Dataform on GCP.
+
+After running the Terraform setup, you can perform a one-time manual step to create the Dataform workspace within the GCP console and then populate it with the provided sample Dataform project files.
 
 ## Features
 
-*   **Automated Infrastructure:** Uses Terraform to provision necessary GCP resources.
+*   **Automated Infrastructure:** 
 *   **Essential Resources:** Creates a dedicated Service Account with appropriate permissions, enables required APIs (Dataform, BigQuery), and sets up a BigQuery dataset.
 *   **Sample Dataform Project:** Includes a basic Dataform project structure (`definitions`, `assertions`, etc. using files from `terraform/source_data/`) to get you started immediately.
 *   **Fast Start:** Designed to minimize setup friction and accelerate your Dataform learning or development process.
