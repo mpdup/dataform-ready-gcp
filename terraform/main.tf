@@ -52,7 +52,7 @@ resource "google_dataform_repository" "dataform_repo" {
 
 
 # -----------------------------------------------------------------------------
-# 4. Grant Dataform Service Account Permissions
+# Grant Dataform Service Account Permissions
 # -----------------------------------------------------------------------------
 
 locals {
