@@ -100,3 +100,5 @@ And manually create recreate the files in dataform subfolder.
 
 Now you have 
 Source Files in GCS -> L0 in Bigquery -> L1 -> L2 data pipeline.
+
+![alt text](documentation/setup.png)
