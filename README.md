@@ -48,7 +48,7 @@ Execute commands:
 terraform init
 ```
 
-Optional - If you want to deploy infrastructure into existing project, first execute. Project will be created if it does not exist 
+Optional - If you don't want to create a new project but instead want to deploy infrastructure into an xisting project, first execute:
 
 ```
 google_project.sandbox_project your-existing-project-id
@@ -100,5 +100,3 @@ And manually create recreate the files in dataform subfolder.
 
 Now you have 
 Source Files in GCS -> L0 in Bigquery -> L1 -> L2 data pipeline.
-
-Observe failing test in `L2_revenue_per_customer.sqlx` due to null columns, how would you take care of this?
